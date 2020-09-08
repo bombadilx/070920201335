@@ -9,7 +9,9 @@ class MainController extends Controller
 {
     public function index()
     {
-        return view('welcome', ['data' => Address::all()]);
+        $data = Address::orderBy('street')->get();
+
+        return view('welcome', ['data' => $data]);
 
     }
 
